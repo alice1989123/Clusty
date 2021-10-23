@@ -1,13 +1,19 @@
 import "./App.css";
 import logo from "./assets/logo-hack.png";
 import { ModelVariablesForm } from "./components/ModelVariablesForm";
+import React, { useState } from "react";
 
 function App() {
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <div className="container mt-3">
       <div className="row">
         <div className="col-md-5">
-          <ModelVariablesForm />
+          <ModelVariablesForm
+            modalShow={modalShow}
+            setModalShow={setModalShow}
+          />
         </div>
         <div className="col-md-7 my-auto">
           <img className="img-fluid w-100" src={logo} alt="" />

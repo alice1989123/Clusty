@@ -1,8 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import BootstrapModal from "./BootstrapModal";
 
-export const ModelVariablesForm = () => {
+export const ModelVariablesForm = ({ modalShow, setModalShow }) => {
   const {
     register,
     handleSubmit,
@@ -20,7 +21,8 @@ export const ModelVariablesForm = () => {
         data: data,
         headers: { "Content-Type": "multipart/form-data" },
       });
-      console.log(response);
+      console.log(response.data);
+      setModalShow(true);
     } catch (error) {
       console.log(error);
     }
@@ -80,6 +82,7 @@ export const ModelVariablesForm = () => {
               Reiniciar
             </button>
           }
+          <BootstrapModal modalShow={modalShow} setModalShow={setModalShow} />
         </div>
       </form>
     </div>
