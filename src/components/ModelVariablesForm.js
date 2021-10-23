@@ -52,16 +52,18 @@ export const ModelVariablesForm = () => {
           <input defaultValue="" {...register("v3")} />
         </div>
 
-        {/*  <div className="form-group">
-          <div>
-            <label>Género</label>
+        {
+          <div className="form-group">
+            <div>
+              <label>Género</label>
+            </div>
+            <select {...register("gender")}>
+              <option value="female">female</option>
+              <option value="male">male</option>
+              <option value="other">other</option>
+            </select>
           </div>
-          <select {...register("gender")}>
-            <option value="female">female</option>
-            <option value="male">male</option>
-            <option value="other">other</option>
-          </select>
-        </div> */}
+        }
         {/* errors will return when field validation fails  */}
         {errors.exampleRequired && <span>This field is required</span>}
 
