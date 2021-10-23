@@ -5,6 +5,7 @@ import React, { useState } from "react";
 
 function App() {
   const [modalShow, setModalShow] = useState(false);
+  const [result, setResult] = useState("");
 
   return (
     <div className="container mt-3">
@@ -13,6 +14,8 @@ function App() {
           <ModelVariablesForm
             modalShow={modalShow}
             setModalShow={setModalShow}
+            result={result}
+            setResult={setResult}
           />
         </div>
         <div className="col-md-7 my-auto">

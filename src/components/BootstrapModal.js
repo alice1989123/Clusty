@@ -1,6 +1,11 @@
 import { Button, Modal } from "react-bootstrap";
 
-const BootstrapModal = function ({ modalShow, setModalShow }) {
+const BootstrapModal = function ({
+  modalShow,
+  setModalShow,
+  result,
+  setResult,
+}) {
   return (
     <div>
       <Modal show={modalShow}>
@@ -8,15 +13,14 @@ const BootstrapModal = function ({ modalShow, setModalShow }) {
           <Modal.Title>Resultado de la evaluación del Usuario</Modal.Title>
         </Modal.Header>
 
-        <Modal.Body> Indice de rentabilidad: Response </Modal.Body>
+        <Modal.Body> {result} </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setModalShow(false)}>
-            Close
-          </Button>
-
           <Button variant="primary" onClick={() => setModalShow(false)}>
-            Save Changes
+            Imprimir reporte
+          </Button>
+          <Button variant="secondary" onClick={() => setModalShow(false)}>
+            Cerrar
           </Button>
         </Modal.Footer>
       </Modal>
