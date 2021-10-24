@@ -4,7 +4,9 @@ import BootstrapModal from "./BootstrapModal";
 import variables from "../assets/variables";
 import variablesNames from "../assets/variablesNames";
 import variablesInstructions from "../assets/variablesInstructions";
-import { Container } from "react-bootstrap";
+import variables1 from "../assets/variables1";
+import variablesNames1 from "../assets/variablesNames1";
+import variablesInstructions1 from "../assets/variablesInstructions1";
 
 export const ModelVariablesForm = ({
   modalShow,
@@ -36,37 +38,22 @@ export const ModelVariablesForm = ({
       console.log(error);
     }
   };
-  console.log(variables[0]);
   return (
     <div className="container w-100">
-      <div className="row">
-        <h1 className="my-4 font-weight-bold text-primary .display-4 ">
-          Formato de evaluación del usuario
-        </h1>
-      </div>
       <div className="register-form row">
         <form onSubmit={handleSubmit(onSubmit)}>
-          {variables.map((variable, index) => (
+          {variables1.map((variable, index) => (
             <div className="form-group" key={index}>
               <div>
-                <label>{`${variablesNames[index]}  ${variablesInstructions[index]}`}</label>
+                <label>{`${variablesNames1[index]}  `}</label>
               </div>
-              <input defaultValue="" {...register(`${variables[index]}`)} />
+              <input
+                defaultValue={`${variablesInstructions1[index]}`}
+                {...register(`${variables1[index]}`)}
+              />
             </div>
           ))}
 
-          {
-            <div className="form-group">
-              <div>
-                <label>Género</label>
-              </div>
-              <select {...register("gender")}>
-                <option value="female">female</option>
-                <option value="male">male</option>
-                <option value="other">other</option>
-              </select>
-            </div>
-          }
           {/* errors will return when field validation fails  */}
           {errors.exampleRequired && <span>This field is required</span>}
 
