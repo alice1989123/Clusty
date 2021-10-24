@@ -1,6 +1,10 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import BootstrapModal from "./BootstrapModal";
+import variables from "../assets/variables";
+import variablesNames from "../assets/variablesNames";
+import variablesInstructions from "../assets/variablesInstructions";
+import { Container } from "react-bootstrap";
 
 export const ModelVariablesForm = ({
   modalShow,
@@ -32,69 +36,62 @@ export const ModelVariablesForm = ({
       console.log(error);
     }
   };
-
+  console.log(variables[0]);
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <div className="register-form">
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="container w-100">
+      <div className="row">
         <h1 className="my-4 font-weight-bold text-primary .display-4 ">
           Formato de evaluación del usuario
         </h1>
-        <div className="form-group">
-          <div>
-            <label>Saldo financiero</label>
-          </div>
-          <input defaultValue="" {...register("v1")} />
-        </div>
-        <div className="form-group">
-          <div>
-            <label>Saldo financiero</label>
-          </div>
-          <input {...register("v2", { required: true })} />
-        </div>
-        <div className="form-group">
-          <div>
-            <label>Saldo financiero</label>
-          </div>
-          <input defaultValue="" {...register("v3")} />
-        </div>
-
-        {
-          <div className="form-group">
-            <div>
-              <label>Género</label>
+      </div>
+      <div className="register-form row">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {variables.map((variable, index) => (
+            <div className="form-group" key={index}>
+              <div>
+                <label>{`${variablesNames[index]}  ${variablesInstructions[index]}`}</label>
+              </div>
+              <input defaultValue="" {...register(`${variables[index]}`)} />
             </div>
-            <select {...register("gender")}>
-              <option value="female">female</option>
-              <option value="male">male</option>
-              <option value="other">other</option>
-            </select>
-          </div>
-        }
-        {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span>This field is required</span>}
+          ))}
 
-        <div className="form-group">
-          <button type="submit" className="btn btn-primary">
-            Solicitar evaluación
-          </button>
           {
-            <button
-              type="button"
-              onClick={() => reset()}
-              className="btn btn-warning float-right"
-            >
-              Reiniciar
-            </button>
+            <div className="form-group">
+              <div>
+                <label>Género</label>
+              </div>
+              <select {...register("gender")}>
+                <option value="female">female</option>
+                <option value="male">male</option>
+                <option value="other">other</option>
+              </select>
+            </div>
           }
-          <BootstrapModal
-            modalShow={modalShow}
-            setModalShow={setModalShow}
-            result={result}
-            setResult={setResult}
-          />
-        </div>
-      </form>
+          {/* errors will return when field validation fails  */}
+          {errors.exampleRequired && <span>This field is required</span>}
+
+          <div className="form-group">
+            <button type="submit" className="btn btn-primary">
+              Solicitar evaluación
+            </button>
+            {
+              <button
+                type="button"
+                onClick={() => reset()}
+                className="btn btn-warning float-right"
+              >
+                Reiniciar
+              </button>
+            }
+            <BootstrapModal
+              modalShow={modalShow}
+              setModalShow={setModalShow}
+              result={result}
+              setResult={setResult}
+            />
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
