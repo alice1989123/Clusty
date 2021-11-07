@@ -58,14 +58,14 @@ export const ModelVariablesForm = ({
           {errors.exampleRequired && <span>This field is required</span>}
 
           <div className="form-group">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary mr-1">
               Solicitar evaluación
             </button>
             {
               <button
                 type="button"
                 onClick={() => reset()}
-                className="btn btn-warning float-right"
+                className="btn btn-warning float-right ml-1"
               >
                 Reiniciar
               </button>
