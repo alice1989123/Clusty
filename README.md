@@ -1,14 +1,6 @@
-# Signup form with formik
-Create simple signup form with formik and use yup for the validation
+The front end with a form for collecting Data for evaluating the credit capability of a user. This project was done for the Hackathon BBVA 2021
 
-## screenshot
-![Signup screenshott](./src/assets/signup.png)
-
-## Links
-Formik : https://formik.org <br/>
-
-### Video Tutorial
-You can see my youtube video for this project in [here](https://youtu.be/u-CCnDayNJw)
+https://openinnovation.bbva.com/es/evento/hackathon-bbva-2021
 
 
 ## Available Scripts
